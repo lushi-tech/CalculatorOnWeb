@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <title>Calculator</title>
+  </head>
+  <style>
+    body {
+      background-color: rgb(203, 196, 188);
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .tabela {
+      background-color: rgb(0, 1, 1);
+      margin: 10%;
+      height: 320px;
+      width: 230px;
+      padding: 0px 0 10px 0px;
+      border-radius: 10%;
+    }
+    table.tab {
+      margin-top: 5px;
+    }
+    div.butonat {
+      text-align: center;
+    }
+    #display {
+      height: 40px;
+      line-height: 40px;
+      text-align: right;
+      padding: 0 10px;
+      font-size: 30px;
+      color: aliceblue;
+    }
+  </style>
+
+  <body>
+    <center>
+      <h1>CALCULATOR</h1>
+   
+        <div class="tabela">
+          <div id="display">0</div>
+          <table class="tab">
+
+            <tr>
+                <td>
+                    <button onclick="clearDisplay()" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;"> C</button>
+                  </td>
+            </tr>
+
+            <tr>
+              <td>
+                <button
+                  onclick="press('7')" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;"> 7</button>
+              </td>
+              <td>
+                <button onclick="press('8')"style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;">8</button>
+              </td>
+              <td>
+                <button onclick="press('9')"style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;">9</button>
+              </td>
+              <td>
+                <button onclick="press('*')"style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(255, 145, 0); color: aliceblue;">*</button>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <button onclick="press('4')" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;">4</button>
+              </td>
+              <td>
+                <button onclick="press('5')" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;">5</button>
+              </td>
+              <td>
+                <button onclick="press('6')"style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;">6</button>
+              </td>
+              <td>
+                <button onclick="press('-')"style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(255, 145, 0); color: aliceblue;"> -</button>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <button onclick="press('1')"style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;">1</button>
+              </td>
+              <td>
+                <button onclick="press('2')" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;"> 2</button>
+              </td>
+              <td>
+                <button onclick="press('3')" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;"> 3</button>
+              </td>
+              <td>
+                <button onclick="press('+')" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(255, 145, 0); color: aliceblue;">+</button>
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <button onclick="press('0')" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;">0 </button>
+              </td>
+              <td>
+                <button onclick="press('.')"style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;">.</button>
+              </td>
+              <td>
+                <button onclick="press('/')" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(62, 61, 61); color: aliceblue;"> /</button>
+              </td>
+              <td>
+                <button onclick="calculate()" style="border-radius: 50%; height: 50px; width: 50px; font-size: x-large; background-color: rgb(255, 145, 0); color: aliceblue;"> =</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+    </center>
+    <script>
+        let currentInput = '';
+
+function press(value) {
+  currentInput += value;
+  document.getElementById('display').innerText = currentInput;
+}
+
+function clearDisplay() {
+  currentInput = '';
+  document.getElementById('display').innerText = '0';
+}
+
+function calculate() {
+  try {
+    currentInput = eval(currentInput).toString();
+    document.getElementById('display').innerText = currentInput;
+  } catch (error) {
+    document.getElementById('display').innerText = 'Error';
+    currentInput = '';
+  }
+}
+    </script>
+</html>
